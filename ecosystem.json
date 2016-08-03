@@ -1,0 +1,43 @@
+{
+    "apps": [
+        {
+            "name": "node-service-template",
+            "script": "src/app.js"
+        }
+    ],
+    "deploy": {
+        "development": {
+            "user": "JSVillage",
+            "ref": "origin/master",
+            "repo": "git repo url (http)",
+            "path": "/path/to/install/location",
+            "pre-deploy-local": "npm lint && npm test",
+            "post-deploy": "cd /path/to/install/location/source && nvm use 6.3.0 && npm install && node_modules/.bin/pm2 startOrRestart ecosystem.json --env development",
+            "env": {
+                "NODE_ENV": "development"
+            }
+        },
+        "preprod": {
+            "user": "JSVillage",
+            "ref": "origin/master",
+            "repo": "git repo url (http)",
+            "path": "/path/to/install/location",
+            "pre-deploy-local": "npm lint && npm test",
+            "post-deploy": "cd /path/to/install/location/source && nvm use 6.3.0 && npm install && node_modules/.bin/pm2 startOrRestart ecosystem.json --env preprod",
+            "env": {
+                "NODE_ENV": "preprod"
+            }
+        },
+        "production": {
+            "user": "JSVillage",
+            "ref": "origin/master",
+            "repo": "git repo url (http)",
+            "path": "/path/to/install/location",
+            "pre-deploy-local": "npm lint && npm test",
+            "post-deploy": "cd /path/to/install/location/source && nvm use 6.3.0 && npm install && node_modules/.bin/pm2 startOrRestart ecosystem.json --env production",
+            "env": {
+                "NODE_ENV": "production"
+            }
+        }
+    }
+}
