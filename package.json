@@ -4,7 +4,9 @@
   "description": "service template for building scalable APIs",
   "scripts": {
     "start": "node ./src/app/app.js",
-    "lint": "./node_modules/.bin/eslint -f tap --ignore-pattern '/src/app/test/*' ./",
+    "build": "node_modules/.bin/webpack --optimize-minimize --progress --display-error-details --display-modules --display-exclude",
+    "build-watch": "node_modules/.bin/webpack --progress --display-error-details --display-modules --display-exclude --watch",
+    "lint": "./node_modules/.bin/eslint --ignore-pattern '/src/app/test/*' ./",
     "test": "npm run lint && node node_modules/.bin/istanbul cover --dir ./src/app/test/coverage --report lcov -x 'app.js' -x '**/src/app/util/**' -x '**/src/app/model/**' node_modules/.bin/cucumber.js -- ./src/app/test/",
     "deploy": ""
   },
@@ -28,10 +30,15 @@
     "redis": "2.6.2"
   },
   "devDependencies": {
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
     "cucumber": "1.2.1",
     "eslint": "3.2.2",
     "eslint-plugin-promise": "2.0.0",
     "istanbul": "0.4.4",
-    "pre-commit": "1.1.3"
+    "json-loader": "^0.5.4",
+    "pre-commit": "1.1.3",
+    "webpack": "1.13.1"
   }
 }

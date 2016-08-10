@@ -36,11 +36,8 @@ if (cluster.isMaster && !process.env.TEST) {
         // cluster.fork();
     });
 
-    cluster.on('message', (message) => {
-        if (workerCount == 0 && message.type == 'general') {
-            console.info(message.text);
-        }
-        workerCount++;
+    cluster.on('message', () => {
+        if (workerCount == 0 ) console.info(`app started on ${SM.properties.self.port}`);
     });
 } else {
     var express = require('express');
@@ -53,6 +50,7 @@ if (cluster.isMaster && !process.env.TEST) {
     var redisClient = redis.createClient();
     var redisStore = require('connect-redis')(session);
     var fs = require('fs');
+    var path = require('path');
     var hbs = require('express-handlebars').create({
         helpers: require('./util/hbsHelpers.js').handlebars,
         extname: '.hbs',
@@ -86,7 +84,11 @@ if (cluster.isMaster && !process.env.TEST) {
     app.use(bodyParser.urlencoded({
         extended: true
     }));
-    app.use('/static', express.static('./../public'));
+    console.info( path.join(__dirname + '/../public') );
+    app.use('/static/css', express.static(__dirname + '/../public/css'));
+    app.use('/static/font', express.static(__dirname + '/../public/font'));
+    app.use('/static/img', express.static(__dirname + '/../public/img'));
+    app.use('/static/js', express.static(__dirname + '/../public/js'));
     if (!process.env.TEST) app.use(require('./middleware/logging')());
     if (!process.env.TEST) app.use(require('./middleware/auth')());
     
@@ -99,5 +101,6 @@ if (cluster.isMaster && !process.env.TEST) {
 
     server.createServer(opts, app).listen(SM.properties.self.port, function () {
         if (process.env.TEST && SM.EMITTER) SM.EMITTER.emit('app-started');
+        else process.send('app-started');
     });
 }
