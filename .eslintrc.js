@@ -31,6 +31,7 @@ module.exports = {
     'globals': {
         'SM': false,
         'randomString': false,
-        'window': false
+        'window': false,
+        'mongooseErrMessage': false
     }
 }

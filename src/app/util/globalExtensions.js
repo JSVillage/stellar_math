@@ -10,6 +10,16 @@ global.randomString = global.randomString || function randomString(length, chara
     return str;
 };
 
+global.mongooseErrMessage = global.mongooseErrMessage || function mongooseErrMessage(err) {
+    var str = '';
+    if (err && err.errors) {
+        for (var error in err.errors) {
+            str += `${err.errors[error].name}: ${err.errors[error].message}\n`;
+        }
+    }
+    return str;
+};
+
 global.btoa = global.btoa || function btoa(base64String) {
     return new Buffer(base64String, 'base64').toString();
 };

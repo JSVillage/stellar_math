@@ -14,9 +14,6 @@ var cluster = require('cluster');
 var numWorkers = process.env.NODE_ENV == 'local' || process.env.TEST ? 1 : require('os').cpus().length;
 require('./util/extensions');
 require('./util/globalExtensions');
-SM.result = require('./util/result').result;
-require('./model');
-
 
 if (cluster.isMaster && !process.env.TEST) {
     var workerCount = 0;
@@ -51,11 +48,15 @@ if (cluster.isMaster && !process.env.TEST) {
     var redisStore = require('connect-redis')(session);
     var fs = require('fs');
     var path = require('path');
+    var mongoose = require('mongoose');
     var hbs = require('express-handlebars').create({
         helpers: require('./util/hbsHelpers.js').handlebars,
         extname: '.hbs',
         partialsDir: __dirname + '/views/partials'
     });
+
+    mongoose.Promise = require('q').Promise;
+    mongoose.connect(`mongodb://${SM.properties.mongo.host}/${SM.properties.mongo.database}`);
 
     var sess = {
         store: new redisStore({
