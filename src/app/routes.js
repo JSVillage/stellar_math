@@ -10,6 +10,7 @@ var api = {
 exports.register = function(app) {
     // controller routes
     app.get('/', routes.home.home);
+    app.get('/signup', routes.home.signup);
 
     // api routes
     app.get('/health', api.health.status);
