@@ -21,3 +21,4 @@ Feature: stellar_math
     Examples:
         | method | route              | valid        | status |
         | GET    | /                  | NA           | 200    |
+        | GET    | /signup            | NA           | 200    |
