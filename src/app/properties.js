@@ -4,6 +4,10 @@ exports.local = {
         port: 6379,
         ttl: 24*60*60000
     },
+    mongo: {
+        host: 'localhost',
+        database: 'stellarMath'
+    },
     self: {
         port: 4433,
         protocol: 'https',
@@ -19,6 +23,10 @@ exports.development = {
         protocol: 'http',
         port: 6379,
         ttl: 24*60*60000
+    },
+    mongo: {
+        host: 'localhost',
+        database: 'stellarMath'
     },
     self: {
         port: 4433,
@@ -37,6 +45,10 @@ exports.preprod = {
         port: 6379,
         ttl: 24*60*60000
     },
+    mongo: {
+        host: 'localhost',
+        database: 'stellarMath'
+    },
     self: {
         port: 4433,
         protocol: 'https',
@@ -53,6 +65,10 @@ exports.production = {
         host:'localhost',
         port: 6379,
         ttl: 24*60*60000
+    },
+    mongo: {
+        host: 'localhost',
+        database: 'stellarMath'
     },
     self: {
         port: 4433,

@@ -5,7 +5,8 @@ module.exports = function () {
     var requestOptions = {
         method: '',
         route: '',
-        body: ''
+        body: '',
+        headers: {}
     };
 
     this.Given(/^I make a "([^"]*)" request to stellar_math on "([^"]*)"$/, function (method, route, callback) {
@@ -19,27 +20,22 @@ module.exports = function () {
         callback();
     });
 
-    this.Then(/^a "([^"]*)" result is received$/, function (result, callback) {
-        require('./../../support/request').sendRequest(requestOptions)
+    this.Then(/^a "([^"]*)" status is received from the api$/, function (status, callback) {
+        requestOptions.headers['Content-Type'] = 'application/json';
+        require('./../../support/request').sendRequest(requestOptions, true)
         .then(function(res){
-            if ( !res || !res.result || !res.result.status || !res.result.message ) return callback(new Error('incorrect response message'));
-            if (res.result.status == SM.result[result].status && res.result.message == SM.result[result].message) {
-                callback();
-            } else {
-                callback(new Error(`expected ${JSON.stringify(SM.result[result].status)} result but got ${JSON.stringify(res.result.status)}`));
+            if (res == status) {
+                return callback();
             }
-            return callback(new Error('should never get here'));
+            return callback(new Error(`expected ${status} result but got ${res}`));
         })
         .catch(function(err){
             callback.fail(err);
         });
     });
 
-    this.Then(/^a "([^"]*)" status code is received$/, function (status, callback) {
-        requestOptions.headers = {
-            'Content-Type': 'text/html',
-            'Accept': 'text/html'
-        };
+    this.Then(/^a "([^"]*)" status is received with the html page$/, function (status, callback) {        
+        requestOptions.headers['Content-Type'] = 'text/html';
         require('./../../support/request').sendRequest(requestOptions, true)
         .then(function(res){
             if (res == status) {
@@ -54,17 +50,13 @@ module.exports = function () {
 
 };
 
-function getBodyForRoute(route, valid) {
+function getBodyForRoute(route, req) {
 
-    // valid = success
-    // invalid = nonexistent fields
-    // NA = empty
-
-    if (valid == 'NA') return '';
+    if (req == 'NA') return '';
 
     switch (route) {
-        case '/basePath/method':
-            return JSON.stringify( models.basePath.method[valid] );
+        case '/signup':
+            return JSON.stringify( models.signup[req] );
     }
     return '';
 }

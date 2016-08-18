@@ -3,11 +3,16 @@ var routes = {
 };
 
 var api = {
-    health: require('./api/health')
+    health: require('./api/health'),
+    auth: require('./api/auth')
 };
 
 exports.register = function(app) {
-    app.get('/health', api.health.status);
-
+    // controller routes
     app.get('/', routes.home.home);
+
+    // api routes
+    app.get('/health', api.health.status);
+    
+    app.post('/signup', api.auth.signup);
 };

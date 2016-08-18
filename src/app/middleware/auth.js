@@ -1,4 +1,4 @@
-var publicPaths = ['GET:/', 'GET:/health'];
+var publicPaths = ['GET:/', 'GET:/health', 'POST:/signup', 'POST:/signin'];
 
 module.exports = function() {
     return function(req, res, next) {

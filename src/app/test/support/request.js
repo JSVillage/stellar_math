@@ -7,36 +7,18 @@ var options = {
     rejectUnauthorized: false,
     path: '',
     method: '',
-    headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-    }
+    headers: {}
 };
 
-exports.sendRequest = function(requestOptions, onlyStatusCode) {
+exports.sendRequest = function(requestOptions) {
     var deferred = Q.defer();
 
     options.path = requestOptions.route;
     options.method = requestOptions.method;
-    if (requestOptions.headers) options.headers = requestOptions.headers;
+    options.headers = requestOptions.headers;
 
     var req = transport.request(options, function(res) {
-        if (onlyStatusCode) return deferred.resolve(res.statusCode);
-        var body = '';
-        res.on('data', function(chunk) {
-            body += chunk;
-        });
-        res.on('end', function() {
-            try {
-                body = JSON.parse(body);
-                return deferred.resolve(body);
-            } catch (e) {
-                return deferred.reject(e);
-            }
-        });
-        res.on('error', function(e) {
-            return deferred.reject(e);
-        });
+        return deferred.resolve(res.statusCode);
     });
     req.on('error', function (err) {
         deferred.reject(err);
