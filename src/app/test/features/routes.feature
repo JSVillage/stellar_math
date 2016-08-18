@@ -13,6 +13,11 @@ Feature: stellar_math
         | POST   | /signup            | existing     | 400    |
         | POST   | /signup            | invalidEmail | 400    |
 
+        | POST   | /signin            | invalidReq   | 400    |
+        | POST   | /signin            | validReq     | 204    |
+        | POST   | /signin            | unknownEmail | 401    |
+        | POST   | /signin            | invalidPswd  | 401    |
+
     Scenario Outline: controller routes
         Given I make a "<method>" request to stellar_math on "<route>"
         And with a "<valid>" body in the request

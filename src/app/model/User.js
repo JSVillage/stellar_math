@@ -23,28 +23,31 @@ User.set('toJSON', {
 });
 
 User.methods.setPassword = function(pwd) {
+    var user = this;
     var deferred = Q.defer();
     crypto.randomBytes(64, function(err, buf) {
         if (err) return deferred.reject(err);
         var str = buf.toString('hex');
         crypto.pbkdf2(pwd, str, 5000, 512, 'sha512WithRSAEncryption', function(err, encoded) {
             if (err) return deferred.reject(err);
-            this.salt = str;
-            this.password = Buffer(encoded, 'binary').toString('hex');
-            this.passwordChanged = new Date();
-            return deferred.resolve(this);
+            user.salt = str;
+            user.password = Buffer(encoded, 'binary').toString('hex');
+            user.passwordChanged = new Date();
+            return deferred.resolve(user);
         });
     });
     return deferred.promise;
 };
 
-User.methods.check = function(pwd) {
+User.methods.verify = function(pwd) {
+    var user = this;
     var deferred = Q.defer();
     crypto.pbkdf2(pwd, this.salt, 5000, 512, 'sha512WithRSAEncryption', function(err, encoded) {
         if (err) return deferred.reject(err);
-        var success = this.password === Buffer(encoded, 'binary').toString('hex');
-        return deferred.resolve(success);
+        var success = user.password === Buffer(encoded, 'binary').toString('hex');
+        return success ? deferred.resolve() : deferred.reject();
     });
+    return deferred.promise;
 };
 
 module.exports = mongoose.model('User', User);
