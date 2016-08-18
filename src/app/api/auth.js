@@ -49,7 +49,7 @@ exports.signin = function(req, res) {
     User.findOne({email: email})
     .then(function(usr){
         user = usr;
-        if (!user) return res.sendStatus(401);
+        if (!user) return res.status(401).send({err: 'unable to login'});
         return user.verify(password);
         // do any lastLogged in stuff?
     })
