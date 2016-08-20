@@ -57,6 +57,8 @@ function getBodyForRoute(route, req) {
     switch (route) {
         case '/signup':
             return JSON.stringify( models.signup[req] );
+        case '/signin':
+            return JSON.stringify( models.signin[req] );
     }
     return '';
 }

@@ -16,3 +16,21 @@ exports.signup = {
         name: 'TEST'
     }
 };
+
+exports.signin = {
+    invalidReq: {
+        email: 'TEST@TEST.com'
+    },
+    validReq: {
+        email: 'test@test.com',
+        password: 'TEST'
+    },
+    unknownEmail: {
+        email: 'akpratt@asu.edu',
+        password: 'TEST'
+    },
+    invalidPswd: {
+        email: 'test@test.com',
+        password: 'test'
+    }
+};

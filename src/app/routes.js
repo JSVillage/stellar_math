@@ -16,4 +16,5 @@ exports.register = function(app) {
     app.get('/health', api.health.status);
     
     app.post('/signup', api.auth.signup);
+    app.post('/signin', api.auth.signin);
 };
