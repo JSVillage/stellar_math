@@ -4,6 +4,23 @@
         {{>head}}
     </head>
     <body>
-        <div id="login" class="title">login/landing page</div>
+      <h1>Welcome to the Stellar Math League</h1>
+      <section>
+        <div>First time here?</div>
+        <div><a href="/signup">Click here to get Started!</a></div>
+      </section>
+      <form action="/signin" method="post" id="user-info">
+        <div>
+          <label for="email">Please enter your email</label>
+          <input type="email" name="email" placeholder="email">
+        </div>
+        <div>
+          <label for="password">Please enter your password</label>
+          <input type="text" name="password" placeholder="password">
+        </div>
+        <div>
+          <input type="submit" value="Launch!">
+        </div>
+      </form>
     </body>
 </html>
