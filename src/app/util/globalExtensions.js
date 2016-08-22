@@ -20,6 +20,11 @@ global.mongooseErrMessage = global.mongooseErrMessage || function mongooseErrMes
     return str;
 };
 
+global.authenticated = global.authenticated || function authenticated(req) {
+    if (req && req.session && req.session.authenticated) return true;
+    return false;
+};
+
 global.btoa = global.btoa || function btoa(base64String) {
     return new Buffer(base64String, 'base64').toString();
 };

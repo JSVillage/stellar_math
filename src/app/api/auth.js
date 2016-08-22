@@ -69,9 +69,15 @@ exports.signin = function(req, res) {
 
 function newSession(req, user) {
     var deferred = Q.defer();
-    if (req && req.session) req.session.regenerate(function(err) {
-        if (err) return deferred.reject();
-        req.session.authenticated = true;
-        req.session.user = user.id;
-    });
+    if (req && req.session) {
+        req.session.regenerate(function(err) {
+            if (err) return deferred.reject();
+            req.session.authenticated = true;
+            req.session.user = user._id;
+            return deferred.resolve();
+        });
+    } else {
+        return deferred.reject();
+    }
+    return deferred.promise;
 }
