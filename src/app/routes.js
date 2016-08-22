@@ -12,6 +12,7 @@ exports.register = function(app) {
     app.get('/', routes.home.home);
     app.get('/signup', routes.home.signup);
     app.get('/signin', routes.home.signin);
+    app.get('/user', routes.home.user);
 
     // api routes
     app.get('/health', api.health.status);
