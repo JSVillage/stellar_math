@@ -1,6 +1,4 @@
 exports.one = function( req, res ) {
-    if (!authenticated(req)) return res.sendStatus(401);
-
     res.render('exercise', {level: {}, progress: {percentage: 20}});
 };
 

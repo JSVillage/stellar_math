@@ -5,3 +5,7 @@ exports.home = function( req, res ) {
 exports.signup = function( req, res ) {
     res.render( 'signup' );
 };
+
+exports.signin = function( req, res ) {
+    res.render( 'signin' );
+};
