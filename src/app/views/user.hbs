@@ -1,47 +1,59 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {{>head}}
+      {{>head}}
+
+      <link rel="stylesheet" type="text/css" href="/static/css/user.css">
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Ubuntu:300,300i,700" rel="stylesheet"> 
     </head>
     <body>
       <!-- Top Information Panel -->
-      <section>
-        <div>Welcome {{user.username}}</div>
-        <div>You have {{user.remainingPoints}} points remaining to reach the next world</div>
+      <section id="info">
+        <div><h1>Welcome {{user.name}}!</h1></div>
+        <div>You have {{user.remainingPoints}} points remaining to reach the next world.</div>
         <div>Your total points awarded are: {{user.totalPoints}}</div>
       </section>
       <!-- Skills Panel (Left) -->
-      <section>
+      <section id="skills">
         <div>Your skills:</div>
-        <div>{{user.skills}}</div>
+        <div class="skills">Counting: 100%</div>
+        <div class="skills">Adding: 0%</div>
+        <section id="tree">
+          <img src="/static/img/badge-count-done.png" class="">
+          <img src="/static/img/badge-add.png" class="badge">
+          <img src="/static/img/badge-subtract.png" class="badge">
+          <img src="/static/img/badge-multiply.png" class="badge">
+          <img src="/static/img/badge-divide.png" class="badge">
+        </section>
       </section>
       <!-- Planets and Buttons -->
-      <section>
-        <form action="">
-          <input type="submit" value="Number World" />
+      <section id="map">
+        <img src="/static/img/sun.png" id="sun">
+        <form action="#">
+          <input type="submit" value="Number World" id="number-world" class="world"/>
         </form>
         <form action="/exercise/addition">
-          <input type="submit" value="Addition World" />
+          <input type="submit" value="Addition World" id="addition-world" class="world"/>
         </form>
-        <form action="">
-          <input type="submit" value="Subtraction World" />
+        <form action="#">
+          <input type="submit" value="Subtraction World" id="subtraction-world" class="world"/>
         </form>
-        <form action="">
-          <input type="submit" value="Multiplication World" />
+        <form action="#">
+          <input type="submit" value="Multiplication World" id="multiplication-world" class="world"/>
         </form>
-        <form action="">
-          <input type="submit" value="Division World" />
+        <form action="#">
+          <input type="submit" value="Division World" id="division-world" class="world"/>
         </form>
-        <form action="">
-          <input type="submit" value="Exponents World" />
+        <form action="#">
+          <input type="submit" value="Exponents World" id="exponents-world" class="world"/>
         </form>
-        <form action="">
-          <input type="submit" value="Operations World" />
+        <form action="#">
+          <input type="submit" value="Operations World" id="operations-world" class="world"/>
         </form>
-        <form action="/exercise/addition">
+        <form action="/exercise/addition" id="go-form">
           <label for="go-button">Are you ready for your next mission?</label>
-          <input type="submit" value="Go" name="go-button"/>
+          <input type="submit" value="Go" name="go-button" id="go-button"/>
         </form>
       </section>
-    </body>
+</body>
 </html>

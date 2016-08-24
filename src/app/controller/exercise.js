@@ -3,10 +3,7 @@ var User = require('./../model/User');
 exports.addition = function( req, res ) {
     User.findById(req.session.user)
     .then(function(user){
-        // if ( user.levels  ) {
-        //     // already has addition
-        // }
-        return user.beginExercise('addition', 2, 9);
+        return user.beginExercise('addition', 2, 6);
     })
     .then(function(level){
         return res.render('exercise', {level: level});
@@ -19,15 +16,8 @@ exports.addition = function( req, res ) {
 exports.begin = function( req, res ) {
     User.findById(req.session.user)
     .then(function(user){
-        var level, i = 0;
-        for (i; i < user.levels.length; i++) {
-            if (user.levels[i].name == user.currentLevel) {
-                level = user.levels[i];
-                // user.levels[i].startTime = Date.now();
-                break;
-            }
-        }
-        if (level) delete level.answer;
+        var level = user.levels[user.currentLevel];
+        delete level.answer;
         return res.send(level);
     })
     .catch(function(err){

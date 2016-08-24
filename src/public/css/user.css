@@ -25,6 +25,10 @@ name on profile
     color: white;
 }
 
+input:focus {
+	outline: none;
+}
+
 body {
 	background-image: url("../img/no-planets-user-bg.jpg");
 	background-repeat: no-repeat;
@@ -199,11 +203,12 @@ div, label {
 	margin-top: 300px;
 }
 
+#go-form label {
+	display: inline-block;
+}
+
 #go-button {
-	display: block;
-	position: absolute;
-	left: 580px;
-	top: 400px;
+	display: inline-block;
 	height: 180px;
 	width: 180px;
 	border: 0;
