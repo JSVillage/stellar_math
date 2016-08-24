@@ -1,0 +1,214 @@
+/*
+FONTS AVAIL:
+Ubuntu+Condensed|Ubuntu:300,300i,400,400i,500,500i,700,700i
+USED: 
+300 italic reg
+300,700 reg
+700 condensed
+
+NOTES
+add a media query for narrow screens
+make button round, add satellite? something fun!
+
+COLORS
+Dark Purple: #1b093b
+Light Lavender: #CBAAFC
+Lavender: #B28AF0;
+
+knock planet color back after level is complete
+flag planet
+name on profile 
+fix send button - more correct mouseover area, add a glow or something to the satellite
+
+*/
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+}
+
+#home-background {
+	display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: url("../img/planet-bg-cover.jpg") no-repeat transparent;
+    background-size: cover;
+    min-height: 600px;
+}
+
+#splash-body {
+    background-image: url("../img/planet-bg.jpg");
+    /*background-image: url("../img/rocket-bg.jpg");
+    background-size: 4000px Auto;*/
+    background-repeat: no-repeat;
+    background-position: center top; 
+    background-color: #1b093b;
+}
+h1 {
+    display: block;
+    margin: 20px 0 10px 30%;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: white;
+    text-shadow: 2px 2px 4px lightcyan;
+}
+@keyframes wiggle-anim {
+    /*add webkit etc */
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(7deg);
+    }
+}
+@keyframes wiggle-anim-wide {
+    /*add webkit etc */
+    from {
+        transform: rotate(-20deg);
+    }
+    to {
+        transform: rotate(20deg);
+    }
+}
+#rocket {
+    float: left;
+    margin: 0 0 0 18%;
+    animation-name: wiggle-anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#satellite {
+    float: left;
+    margin: 0 0 0 18%;
+    animation-name: wiggle-anim-wide;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#signup-content {
+    display: block;
+    margin: 0 0 0 45%;
+}
+#signup-content section {
+    line-height: 20px;
+    margin: 0;
+}
+a, a:visited {
+    font-style: italic;
+    font-size: 14px;
+    text-decoration: none;
+    color: #CBAAFC;
+}
+a:hover, a:active {
+    text-decoration: underline;
+    color: #B28AF0;
+}
+form {
+    display: block;
+    line-height: 30px;
+}
+label, input {
+    display: block;
+}
+label {
+    padding: 10px 0 0 0 ;
+    text-shadow:
+     -1px -1px 0 #1b093b,  
+      1px -1px 0 #1b093b,
+      -1px 1px 0 #1b093b,
+       1px 1px 0 #1b093b;
+}
+input {
+    color: #0D256D;
+    font-size: 14px;
+    width: 300px;
+}
+select, option {
+    color: #1b093b;
+    font-size: 14px;
+    padding: 2px;
+}
+select:hover {
+    cursor: pointer;
+}
+#send-button {
+    display: block;
+    position: relative;
+    margin: -50px 0 0 150px;
+    height: 150px;
+    width: 150px;
+    border: 0;
+    border-radius: 75px;
+    background-image: url("../img/sat.png");
+    background-size: 110px Auto;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center top; 
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 2px 3px white;
+    animation-name: wiggle-anim-wide;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(-20deg);
+}
+#send-button:hover {
+    color: #3BADEE;
+    cursor: pointer;
+    text-shadow: 2px 2px 1px white;
+    background-image: url("../img/sat-glow.png");
+}
+
+#send-button:focus {
+	outline: none;
+}
+
+#launch-button {
+    display: block;
+    position: relative;
+    left: 100px;
+    top: 10px;
+    height: 150px;
+    width: 150px;
+    border: 0;
+    border-radius: 75px;
+    background-image: url("../img/rocket-up.png");
+    background-size: 110px Auto;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center top; 
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 2px 3px white;
+    animation-name: wiggle-anim;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(-20deg);
+}
+
+#launch-button:hover {
+    color: #3BADEE;
+    cursor: pointer;
+    text-shadow: 2px 2px 1px white;
+    background-image: url("../img/rocket-up-glow.png");
+}
+
+#launch-button:focus {
+	outline: none;
+}
+
+#sign-in-area {
+    display: block;
+    margin: 0 0 0 45%;
+}

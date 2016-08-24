@@ -31,7 +31,11 @@ module.exports = {
     'globals': {
         'SM': false,
         'randomString': false,
+        'mongooseErrMessage': false,
+        
         'window': false,
-        'mongooseErrMessage': false
+        'document': false,
+        '$': false,
+        'toJsonData': false
     }
 }

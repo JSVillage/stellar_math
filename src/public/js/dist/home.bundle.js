@@ -42,30 +42,35 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ function(module, exports, __webpack_require__) {
+/***/ function(module, exports) {
 
 	'use strict';
 
-	window.SM = window.SM || {};
-	SM.model = {};
+	$(document).ready(function () {
+	    $('#send-button').click(function (e) {
+	        e.preventDefault();
+	        return signup();
+	    });
 
-	__webpack_require__(1);
+	    $('#launch-button').click(function (e) {
+	        e.preventDefault();
+	        return signin();
+	    });
+	});
 
-/***/ },
-/* 1 */
-/***/ function(module, exports) {
+	function signup() {
+	    var data = toJsonData($('#user-info'));
+	    $.post('/signup', data, function () {
+	        window.location.href = '/user';
+	    });
+	}
 
-	"use strict";
-
-	window.toJsonData = window.toJsonData || function toJsonData(form) {
-	    var data = {};
-	    var formArr = form.serializeArray();
-	    var i = 0;
-	    for (i; i < formArr.length; i++) {
-	        data[formArr[i].name] = formArr[i].value;
-	    }
-	    return data;
-	};
+	function signin() {
+	    var data = toJsonData($('#user-info'));
+	    $.post('/signin', data, function () {
+	        window.location.href = '/user';
+	    });
+	}
 
 /***/ }
 /******/ ]);

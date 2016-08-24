@@ -11,7 +11,8 @@ var api = {
 
 exports.register = function(app) {
     // controller routes
-    app.get('/', routes.home.home);
+    // app.get('/', routes.home.home);
+    app.get('/', routes.home.signin);
     app.get('/signup', routes.home.signup);
     app.get('/signin', routes.home.signin);
     app.get('/user', routes.user.user);
