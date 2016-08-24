@@ -1,14 +1,25 @@
 <!DOCTYPE html>
 <html>
     <head>
-        {{>head}}
+      {{>head}}
+
+      <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+      <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Ubuntu:300,300i,700" rel="stylesheet"> 
+
+      <script src="/static/js/dist/home.bundle.js"></script>
     </head>
-    <body>
+    <body  id="splash-body">
+      <div id="splash-background"></div>
       <h1>Welcome to the Stellar Math League</h1>
+      <div id="satellite">
+        <img src="static/img/satellite.png">
+      </div>
+      <div id="sign-in-area">
       <section>
         <div>First time here?</div>
         <div><a href="/signup">Click here to get Started!</a></div>
       </section>
+      
       <form action="/signin" method="post" id="user-info">
         <div>
           <label for="email">Please enter your email</label>
@@ -16,11 +27,13 @@
         </div>
         <div>
           <label for="password">Please enter your password</label>
-          <input type="text" name="password" placeholder="password">
+          <input type="password" name="password" placeholder="password">
         </div>
         <div>
-          <input type="submit" value="Launch!">
+          <input type="submit" value="Launch!" id="launch-button">
         </div>
       </form>
+      </div>
+    
     </body>
 </html>

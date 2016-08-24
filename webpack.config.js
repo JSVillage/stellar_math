@@ -1,6 +1,7 @@
 var config = {
     entry: {
-        index: './src/public/js/index.js'
+        index: './src/public/js/index.js',
+        home: './src/public/js/home.js'
     },
     output: {
         path: './src/public/js/dist/',
