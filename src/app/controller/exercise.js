@@ -1,4 +1,4 @@
-exports.one = function( req, res ) {
+exports.addition = function( req, res ) {
     res.render('exercise', {level: {}, progress: {percentage: 20}});
 };
 

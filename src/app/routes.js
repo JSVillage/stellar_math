@@ -17,7 +17,7 @@ exports.register = function(app) {
     app.get('/signin', routes.home.signin);
     app.get('/user', routes.user.user);
 
-    app.get('/exercise/1', routes.exercise.one);
+    app.get('/exercise/addition', routes.exercise.addition);
 
     // api routes
     app.get('/health', api.health.status);
