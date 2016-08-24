@@ -4,20 +4,23 @@
         {{>head}}
     </head>
     <body>
+      <!-- Top Information Panel -->
       <section>
         <div>Welcome {{user.username}}</div>
         <div>You have {{user.remainingPoints}} points remaining to reach the next world</div>
-        <div>Your total points awarded are: {{totalPoints}}</div>
+        <div>Your total points awarded are: {{user.totalPoints}}</div>
       </section>
+      <!-- Skills Panel (Left) -->
       <section>
         <div>Your skills:</div>
-        <div>{{skills}}</div>
+        <div>{{user.skills}}</div>
       </section>
+      <!-- Planets and Buttons -->
       <section>
         <form action="">
           <input type="submit" value="Number World" />
         </form>
-        <form action="/addition">
+        <form action="/exercise/addition">
           <input type="submit" value="Addition World" />
         </form>
         <form action="">
@@ -34,6 +37,10 @@
         </form>
         <form action="">
           <input type="submit" value="Operations World" />
+        </form>
+        <form action="/exercise/addition">
+          <label for="go-button">Are you ready for your next mission?</label>
+          <input type="submit" value="Go" name="go-button"/>
         </form>
       </section>
     </body>

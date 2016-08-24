@@ -11,12 +11,15 @@ var api = {
 
 exports.register = function(app) {
     // controller routes
-    app.get('/', routes.home.home);
+    // app.get('/', routes.home.home);
+    app.get('/', routes.home.signin);
     app.get('/signup', routes.home.signup);
     app.get('/signin', routes.home.signin);
     app.get('/user', routes.user.user);
 
-    app.get('/exercise/1', routes.exercise.one);
+    app.get('/exercise/addition', routes.exercise.addition);
+    app.get('/exercise/begin', routes.exercise.begin);
+    app.get('/exercise/check', routes.exercise.check);
 
     // api routes
     app.get('/health', api.health.status);

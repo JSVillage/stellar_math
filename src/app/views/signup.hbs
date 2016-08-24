@@ -2,38 +2,56 @@
 <html>
     <head>
         {{>head}}
+
+        <link rel="stylesheet" type="text/css" href="/static/css/home.css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Ubuntu:300,300i,700" rel="stylesheet"> 
+
+        <script src="/static/js/dist/home.bundle.js"></script>
     </head>
-    <body>
+    <body id="splash-body">
+      <div id="splash-background"></div>
+
       <h1>Welcome to the Stellar Math League</h1>
-      <section>
-        <div>Let's get started!</div>
-        <div><a href="/signin">Already have an account? Click here</a></div>
-      </section>
-      <form action="/signup" method="post" id="user-info">
-        <div>
-          <div>What name would you like to use?</div>
-          <label for="name">Your name</label>
-          <input type="text" name="name" placeholder="Please enter your name here">
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input type="email" name="email" placeholder="What email would you like to use?">
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input type="text" name="password" placeholder="What password would you like to use?">
-        </div>
-        <div>
-          <div>How old are you?</div>
-          <select name="age" form="user-info">
-            <option value="value1">3-5 years old</option> 
-            <option value="value2">6-8 years old</option>
-            <option value="value3">9-12 years old</option>
-          </select>
-        </div>
-        <div>
-          <input type="submit" value="Send">
-        </div>
-      </form>
+
+      <div id="rocket">
+        <img src="/static/img/rocket.png">
+      </div>
+
+      <div id="signup-content">
+        
+        <section>
+          <div>Let's get started!</div>
+          <div><a href="/signin">Already have an account? Click here to login!</a></div>
+        </section>
+
+        <form action="/signup" method="post" id="user-info">
+          <div>
+            <label for="name">What name would you like to use?</label>
+            <input type="text" name="name" placeholder="Please enter your name here">
+          </div>
+          <div>
+            <label for="email">What is your email?</label>
+            <input type="email" name="email" placeholder="What email would you like to use?">
+          </div>
+          <div>
+            <label for="password">What is your password?</label>
+            <input type="password" name="password" placeholder="What password would you like to use?">
+          </div>
+          <div>
+            <label>How old are you?</label>
+            <select name="age" form="user-info">
+              <option value="3-5">3-5 years old</option> 
+              <option value="6-8">6-8 years old</option>
+              <option value="9-12">9-12 years old</option>
+              <option value="13+">13 or older</option>
+            </select>
+          </div>
+          <div>
+            <input type="submit" value=" Send" id="send-button">
+          </div>
+        </form>
+
+      </div>
+
     </body>
 </html>
