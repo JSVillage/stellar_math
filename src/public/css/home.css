@@ -2,24 +2,15 @@
 FONTS AVAIL:
 Ubuntu+Condensed|Ubuntu:300,300i,400,400i,500,500i,700,700i
 USED: 
-300 italic reg
-300,700 reg
-700 condensed
+300,300i,700
 
 NOTES
 add a media query for narrow screens
-make button round, add satellite? something fun!
 
 COLORS
 Dark Purple: #1b093b
 Light Lavender: #CBAAFC
 Lavender: #B28AF0;
-
-knock planet color back after level is complete
-flag planet
-name on profile 
-fix send button - more correct mouseover area, add a glow or something to the satellite
-
 */
 
 * {
