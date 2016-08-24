@@ -1,5 +1,7 @@
 var routes = {
-    home: require('./controller/home')
+    home: require('./controller/home'),
+    exercise: require('./controller/exercise'),
+    user: require('./controller/user')
 };
 
 var api = {
@@ -12,10 +14,13 @@ exports.register = function(app) {
     app.get('/', routes.home.home);
     app.get('/signup', routes.home.signup);
     app.get('/signin', routes.home.signin);
+    app.get('/user', routes.user.user);
+
+    app.get('/exercise/1', routes.exercise.one);
 
     // api routes
     app.get('/health', api.health.status);
-    
+
     app.post('/signup', api.auth.signup);
     app.post('/signin', api.auth.signin);
 };

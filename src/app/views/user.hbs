@@ -4,6 +4,37 @@
         {{>head}}
     </head>
     <body>
-        <div id="user" class="title">user profile page/landing page for logged in user</div>
+      <section>
+        <div>Welcome {{user.username}}</div>
+        <div>You have {{user.remainingPoints}} points remaining to reach the next world</div>
+        <div>Your total points awarded are: {{totalPoints}}</div>
+      </section>
+      <section>
+        <div>Your skills:</div>
+        <div>{{skills}}</div>
+      </section>
+      <section>
+        <form action="">
+          <input type="submit" value="Number World" />
+        </form>
+        <form action="/addition">
+          <input type="submit" value="Addition World" />
+        </form>
+        <form action="">
+          <input type="submit" value="Subtraction World" />
+        </form>
+        <form action="">
+          <input type="submit" value="Multiplication World" />
+        </form>
+        <form action="">
+          <input type="submit" value="Division World" />
+        </form>
+        <form action="">
+          <input type="submit" value="Exponents World" />
+        </form>
+        <form action="">
+          <input type="submit" value="Operations World" />
+        </form>
+      </section>
     </body>
 </html>

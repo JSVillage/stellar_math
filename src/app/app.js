@@ -79,6 +79,7 @@ if (cluster.isMaster && !process.env.TEST) {
     app.set('view engine', '.hbs');
     app.set('views', __dirname+'/views');
     app.use(compression());
+    app.use(session(sess));
     app.use(bodyParser.json({
         type: 'application/json'
     }));
