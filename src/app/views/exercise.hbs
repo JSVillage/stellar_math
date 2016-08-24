@@ -2,13 +2,37 @@
 <html>
     <head>
         {{>head}}
+
+        <link rel="stylesheet" type="text/css" href="/static/css/exercise.css">
+        <link href="https://fonts.googleapis.com/css?family=Ubuntu+Condensed|Ubuntu:300,300i,700" rel="stylesheet"> 
+        
+        <script src="/static/js/dist/exercise.bundle.js"></script>
     </head>
     <body>
+        <div id="exercise-background"></div>
+        <h1 id="exercise-title">{{level.name}}</h1>
         <div id="exercize-explanation">
-            <p>words here about how to do something related to maths</p>
-            <button id="begin-exercise">begin</button>
+            <p>{{level.instructions}}</p>
         </div>
-        <div id="progress-bar" class="progress-{{progress.percentage}}">
+        <div id="exercise-workspace" style="display:none">
+            <div id="exercise-visual">
+                <div id="value1-objects">
+                </div>
+                <div id="operator-seperator">+</div>
+                <div id="value2-objects">
+                </div>
+            </div>
+            <div id="exercise-equation">
+                <div id="value1">0</div>
+                <div id="operator">+</div>
+                <div id="value2">0</div>
+                <div id="equals">=</div>
+                <div id="result">0</div>
+            </div>
+            <div id="submit-exercise">submit</div>
+        </div>
+        <div id="begin-exercise">begin</div>
+        <div id="progress-bar">
             rocket ship!
         </div>
     </body>

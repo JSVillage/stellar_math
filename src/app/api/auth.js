@@ -22,9 +22,6 @@ exports.signup = function(req, res) {
         return user.setPassword(password);
     })
     .then(function(){
-        return user.save();
-    })
-    .then(function(){
         return newSession(req, user);
     })
     .then(function(){

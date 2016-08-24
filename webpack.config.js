@@ -1,7 +1,8 @@
 var config = {
     entry: {
         index: './src/public/js/index.js',
-        home: './src/public/js/home.js'
+        home: './src/public/js/home.js',
+        exercise: './src/public/js/exercise.js'
     },
     output: {
         path: './src/public/js/dist/',

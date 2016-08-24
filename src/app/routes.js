@@ -18,6 +18,8 @@ exports.register = function(app) {
     app.get('/user', routes.user.user);
 
     app.get('/exercise/addition', routes.exercise.addition);
+    app.get('/exercise/begin', routes.exercise.begin);
+    app.get('/exercise/check', routes.exercise.check);
 
     // api routes
     app.get('/health', api.health.status);
