@@ -29,7 +29,7 @@ fix send button - more correct mouseover area, add a glow or something to the sa
     color: white;
 }
 
-#home-background {
+#splash-background {
 	display: block;
     position: absolute;
     top: 0;
@@ -43,14 +43,6 @@ fix send button - more correct mouseover area, add a glow or something to the sa
     min-height: 600px;
 }
 
-#splash-body {
-    background-image: url("../img/planet-bg.jpg");
-    /*background-image: url("../img/rocket-bg.jpg");
-    background-size: 4000px Auto;*/
-    background-repeat: no-repeat;
-    background-position: center top; 
-    background-color: #1b093b;
-}
 h1 {
     display: block;
     margin: 20px 0 10px 30%;
