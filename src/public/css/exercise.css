@@ -1,0 +1,120 @@
+/*
+FONTS AVAIL:
+Ubuntu+Condensed|Ubuntu:300,300i,400,400i,500,500i,700,700i
+USED: 
+300 italic reg
+300,700 reg
+700 condensed
+
+NOTES
+add a media query for narrow screens
+make button round, add satellite? something fun!
+
+COLORS
+Dark Purple: #1b093b
+Light Lavender: #CBAAFC
+Lavender: #B28AF0;
+
+knock planet color back after level is complete
+flag planet
+name on profile 
+fix send button - more correct mouseover area, add a glow or something to the satellite
+
+*/
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+}
+
+#exercise-background {
+	display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    background: url("../img/earth-bg.jpg") no-repeat transparent;
+    background-size: cover;
+    min-height: 600px;
+}
+
+h1 {
+    display: block;
+    margin: 20px 0 0 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: white;
+    text-shadow: 2px 2px 4px lightcyan;
+}
+
+#exercize-explanation {
+    padding: 10px 15% 0 15%;
+    text-align: center;
+    font-family: 'Ubuntu Condensed', sans-serif;
+    margin: auto;
+}
+
+#begin-exercise, #submit-exercise {
+    margin: auto;
+    margin-top: 50px;
+    background-color: #B28AF0;
+    border-radius: 3px;
+    width: 90px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    cursor: pointer;
+}
+
+#begin-exercise:hover, #submit-exercise:hover {
+    background-color: #CBAAFC;
+}
+
+#exercise-workspace {
+    padding: 20px 0 0 0;
+    width: 100%;
+    text-align: center;
+}
+
+#exercise-visual div {
+    display: inline-block;
+}
+
+.exercise-object {
+    margin: 5px;
+    height: 30px;
+    width: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 10px 2px #1b093b;
+    background-color:white;
+    cursor: pointer;
+}
+
+.selected {
+    background-color: lawngreen;
+}
+
+#operator-seperator {
+    font-size: 30px;
+    height: 30px;
+    line-height: 0px;
+    vertical-align: middle;
+}
+
+#exercise-equation div {
+    display: inline-block;
+    font-size: 30px;
+    padding: 20px 0 0 0;
+}
+
+#value1, #value2, #result {
+    text-decoration: underline;
+}
