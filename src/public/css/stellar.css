@@ -29,7 +29,7 @@ fix send button - more correct mouseover area, add a glow or something to the sa
     color: white;
 }
 
-#signup-body {
+#splash-body {
 	background-image: url("../img/planet-bg.jpg");
 	/*background-image: url("../img/rocket-bg.jpg");
 	background-size: 4000px Auto;*/
@@ -54,7 +54,7 @@ h1 {
     	transform: rotate(0deg);
     }
     to {
-    	transform: rotate(3deg);
+    	transform: rotate(7deg);
     }
 }
 
@@ -74,6 +74,16 @@ h1 {
 
     animation-name: wiggle-anim;
     animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#satellite {
+    float: left;
+	margin: 0 0 0 18%;
+
+    animation-name: wiggle-anim-wide;
+    animation-duration: 10s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
 }
@@ -141,25 +151,61 @@ select:hover {
 	width: 150px;
 	border: 0;
 	border-radius: 75px;
-	background-image: url("../img/satellite.png");
+	background-image: url("../img/sat.png");
 	background-size: 110px Auto;
 	background-color: transparent;
 	background-repeat: no-repeat;
     background-position: center top; 
     font-weight: 700;
     font-size: 24px;
-    text-shadow: 2px 2px 1px white;
+    text-shadow: 2px 2px 3px white;
     animation-name: wiggle-anim-wide;
-    animation-duration: 4s;
+    animation-duration: 5s;
     animation-iteration-count: infinite;
     animation-direction: alternate;
     transform: rotate(-20deg);
 }
 
 #send-button:hover {
-	color: purple;
+	color: #3BADEE;
 	cursor: pointer;
-	text-shadow: 2px 2px 1px black;
+	text-shadow: 2px 2px 1px white;
+	background-image: url("../img/sat-glow.png");
 }
 
+#launch-button {
+	display: block;
+	position: relative;
+	left: 100px;
+	top: 10px;
+	height: 150px;
+	width: 150px;
+	border: 0;
+	border-radius: 75px;
+	background-image: url("../img/rocket-up.png");
+	background-size: 110px Auto;
+	background-color: transparent;
+	background-repeat: no-repeat;
+    background-position: center top; 
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 2px 3px white;
+    animation-name: wiggle-anim;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(-20deg);
+}
+
+#launch-button:hover {
+	color: #3BADEE;
+	cursor: pointer;
+	text-shadow: 2px 2px 1px white;
+	background-image: url("../img/rocket-up-glow.png");
+}
+
+#sign-in-area {
+	display: block;
+	margin: 0 0 0 45%;
+}
 
