@@ -1,0 +1,388 @@
+/*
+FONTS AVAIL:
+Ubuntu+Condensed|Ubuntu:300,300i,400,400i,500,500i,700,700i
+USED: 
+300,300i,700
+
+NOTES
+add a media query for narrow screens
+
+COLORS
+Dark Purple: #1b093b
+Light Lavender: #CBAAFC
+Lavender: #B28AF0;
+
+knock planet color back after level is complete
+flag planet
+name on profile 
+
+*/
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    color: white;
+}
+
+body {
+	background-image: url("../img/no-planets-user-bg.jpg");
+	background-repeat: no-repeat;
+    background-position: center top; 
+    background-color: #1b093b;
+}
+
+#info {
+	display: block;
+	width: 50%;
+	margin: auto;
+}
+
+#skills {
+	display: block;
+	float: left;
+	width: 10%;
+	margin: 10px 5% 0 10%;
+}
+
+#map {
+	display: block;
+	float: left;
+	width: 55%;
+	margin: 10px 10px;
+}
+
+h1 {
+	display: block;
+	font-family: 'Ubuntu Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    color: white;
+    text-shadow: 2px 2px 4px lightcyan;
+    margin: 10px;
+    padding: 0;
+}
+
+h4 {
+
+}
+
+div, label {
+	padding: 10px 0 0 0 ;
+	text-shadow:
+     -1px -1px 0 #1b093b,  
+      1px -1px 0 #1b093b,
+      -1px 1px 0 #1b093b,
+       1px 1px 0 #1b093b;
+}
+
+.skills {
+	line-height: 15px;
+	font-size: 80%;
+	color: #33FF15;
+}
+
+#tree img {
+	width: 50px;
+	height: 50px;
+	margin: 8px 3px 3px 3px;
+}
+
+.badge {
+	opacity: .4;
+}
+
+.world {
+	opacity: .6;
+}
+
+#number-world {
+	opacity: 1;
+}
+
+#sun {
+	display: block;
+	position: absolute;
+	left: 250px;
+	top: 200px;
+	height: 150px;
+	width: auto;
+	border: 0;
+}
+
+.world {
+	width: auto;
+	border: 0;
+	display: block;
+	position: absolute;
+	background-color: transparent;
+	background-repeat: no-repeat;
+    background-position: center top; 
+    font-weight: 700;
+    font-size: 18px;
+    text-shadow: 2px 2px 3px navy;
+    color: #45CFFF;
+}
+
+#number-world {
+	left: 340px;
+	top: 160px;
+	height: 70px;
+	background-image: url("../img/planet-red.png");
+	background-size: 80px Auto;
+	color: #fff;
+}
+
+#addition-world {
+	color: #33FF15;
+	left: 430px;
+	top: 200px;
+	height: 100px;
+	background-image: url("../img/add-planet-glow.png");
+	background-size: 100px Auto;
+	opacity: .9;
+}
+
+#addition-world:hover {
+	color: #B2FFA4;
+	background-image: url("../img/add-planet-glow.png");
+	opacity: 1;
+	cursor: pointer;
+}
+
+#subtraction-world {
+	left: 400px;
+	top: 320px;
+	height: 100px;
+	background-image: url("../img/earth.png");
+	background-size: 100px Auto;
+}
+
+#multiplication-world {
+	left: 580px;
+	top: 120px;
+	height: 200px;
+	background-image: url("../img/planet-orange-rings.png");
+	background-size: 200px Auto;
+}
+
+#division-world {
+	left: 620px;
+	top: 270px;
+	height: 100px;
+	background-image: url("../img/planet-blue.png");
+	background-size: 100px Auto;
+}
+
+#exponents-world {
+	left: 770px;
+	top: 210px;
+	height: 100px;
+	background-image: url("../img/planet-yellow.png");
+	background-size: 100px Auto;
+}
+
+#operations-world {
+	left: 800px;
+	top: 320px;
+	height: 150px;
+	background-image: url("../img/planet-blue-rings.png");
+	background-size: 150px Auto;
+}
+
+
+#number-world:hover, #subtraction-world:hover, #multiplication-world:hover, #division-world:hover, #exponents-world:hover, #operations-world:hover {
+	cursor: default;
+}
+
+#go-form {
+	margin-top: 300px;
+}
+
+#go-button {
+	display: block;
+	position: absolute;
+	left: 580px;
+	top: 400px;
+	height: 180px;
+	width: 180px;
+	border: 0;
+	border-radius: 75px;
+	background-image: url("../img/rocket-up.png");
+	background-size: 110px Auto;
+	background-color: transparent;
+	background-repeat: no-repeat;
+    background-position: center top; 
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 2px 3px white;
+    animation-name: wiggle-anim;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(-20deg);
+}
+
+#go-button:hover {
+	color: #33FF15;
+	cursor: pointer;
+	text-shadow: 2px 2px 1px white;
+	background-image: url("../img/rocket-up-glow.png");
+}
+
+@keyframes wiggle-anim {
+	/*add webkit etc */
+    from {
+    	transform: rotate(0deg);
+    }
+    to {
+    	transform: rotate(7deg);
+    }
+}
+
+/*===========================*/
+
+
+@keyframes wiggle-anim-wide {
+	/*add webkit etc */
+    from {
+    	transform: rotate(-20deg);
+    }
+    to {
+    	transform: rotate(20deg);
+    }
+}
+
+#rocket {
+    float: left;
+	margin: 0 0 0 18%;
+
+    animation-name: wiggle-anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#satellite {
+    float: left;
+	margin: 0 0 0 18%;
+
+    animation-name: wiggle-anim-wide;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#signup-content {
+	display: block;
+	margin: 0 0 0 45%;
+}
+
+#signup-content section {
+	line-height: 20px;
+	margin: 0;
+}
+
+a, a:visited {
+	font-style: italic;
+	font-size: 14px;
+	text-decoration: none;
+	color: #CBAAFC;
+}
+
+a:hover, a:active {
+	text-decoration: underline;
+	color: #B28AF0;
+}
+form {
+	display: block;
+	line-height: 30px;
+}
+
+label, input {
+	display: block;
+}
+
+
+input {
+	color: #0D256D;
+	font-size: 14px;
+	width: 300px;
+}
+
+select, option {
+	color: #1b093b;
+ 	font-size: 14px;
+	padding: 2px;
+}
+
+select:hover {
+	cursor: pointer;
+}
+
+#send-button {
+	display: block;
+	position: relative;
+	margin: -50px 0 0 150px;
+	height: 150px;
+	width: 150px;
+	border: 0;
+	border-radius: 75px;
+	background-image: url("../img/sat.png");
+	background-size: 110px Auto;
+	background-color: transparent;
+	background-repeat: no-repeat;
+    background-position: center top; 
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 2px 3px white;
+    animation-name: wiggle-anim-wide;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(-20deg);
+}
+
+#send-button:hover {
+	color: #3BADEE;
+	cursor: pointer;
+	text-shadow: 2px 2px 1px white;
+	background-image: url("../img/sat-glow.png");
+}
+
+#launch-button {
+	display: block;
+	position: relative;
+	left: 100px;
+	top: 10px;
+	height: 150px;
+	width: 150px;
+	border: 0;
+	border-radius: 75px;
+	background-image: url("../img/rocket-up.png");
+	background-size: 110px Auto;
+	background-color: transparent;
+	background-repeat: no-repeat;
+    background-position: center top; 
+    font-weight: 700;
+    font-size: 24px;
+    text-shadow: 2px 2px 3px white;
+    animation-name: wiggle-anim;
+    animation-duration: 1.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    transform: rotate(-20deg);
+}
+
+#launch-button:hover {
+	color: #3BADEE;
+	cursor: pointer;
+	text-shadow: 2px 2px 1px white;
+	background-image: url("../img/rocket-up-glow.png");
+}
+
+#sign-in-area {
+	display: block;
+	margin: 0 0 0 45%;
+}
+
