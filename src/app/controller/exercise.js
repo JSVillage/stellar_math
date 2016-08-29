@@ -29,17 +29,10 @@ exports.check = function( req, res ) {
     var answer = req.query.answer;
     User.findById(req.session.user)
     .then(function(user){
-        var level, i = 0;
-        for (i; i < user.levels.length; i++) {
-            if (user.levels[i].name == user.currentLevel) {
-                level = user.levels[i];
-                // user.levels[i].startTime = Date.now();
-                break;
-            }
-        }
-        return res.send(level.answer == answer);
+        var level = user.levels[user.currentLevel];
+        return res.send({result: level.answer == answer});
     })
-    .catch(function(err){
-        return res.send(err);
+    .catch(function(){
+        return res.send({result: false});
     });
 };
