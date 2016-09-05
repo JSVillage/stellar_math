@@ -1,18 +1,19 @@
-setup
+# Setup
+
 install redis (http://redis.io/topics/quickstart)
 install mongodb (most likely)
 `npm install`
 
 run eslint
-`npm lint`
+`npm run lint`
 
 run basic bdd test on endpoints/URIs with coverage
-`NODE_ENV=local|development|preprod|production npm test`
+`NODE_ENV=local|development|preprod|production npm run test`
 
 start the service
-`NODE_ENV=local|development|preprod|production npm start`
+`NODE_ENV=local|development|preprod|production npm run start`
 
-src/app            = service side
+src/app            = server side
 src/app/api        = api routes (where all responses are returned)
 src/app/controller = where all templates are served from
 src/app/middleware = middleware

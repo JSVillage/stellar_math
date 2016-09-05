@@ -2,6 +2,7 @@
   "name": "stellar-math",
   "version": "0.1.0",
   "description": "service template for building scalable APIs",
+  "main": "src/app/app.js",
   "scripts": {
     "start": "node ./src/app/app.js",
     "build": "node_modules/.bin/webpack --optimize-minimize --progress --display-error-details --display-modules --display-exclude",

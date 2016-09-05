@@ -34,8 +34,9 @@ if (cluster.isMaster && !process.env.TEST) {
     });
 
     cluster.on('message', () => {
-        if (workerCount == 0 ) console.info(`app started on ${SM.properties.self.port}`);
+        if (workerCount == 0 ) console.info(`app started at https://0.0.0.0:${SM.properties.self.port}`);
     });
+
 } else {
     var express = require('express');
     var app = express();
