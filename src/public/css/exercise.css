@@ -57,6 +57,7 @@ h1 {
 
 #exercize-explanation {
     padding: 10px 15% 0 15%;
+    text-shadow: -1px -1px 0 #1b093b, 1px -1px 0 #1b093b, -1px 1px 0 #1b093b, 1px 1px 0 #1b093b;
     text-align: center;
     font-family: 'Ubuntu Condensed', sans-serif;
     margin: auto;

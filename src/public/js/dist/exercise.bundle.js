@@ -94,7 +94,7 @@
 
 	function submitExercise(answer) {
 	    $.get('/exercise/check?answer=' + answer, function (result) {
-	        if (result) window.alert('congrats');else window.alert('incorrect');
+	        if (result && result.result) window.alert('congrats');else window.alert('incorrect');
 	    });
 	}
 
